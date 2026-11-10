@@ -1,17 +1,17 @@
-function createComparisons(players) {
+function createComparisons(players, maxComparisons) {
   const pairs = [];
   for (let first = 0; first < players.length; first += 1) {
     for (let second = first + 1; second < players.length; second += 1) {
       pairs.push([players[first], players[second]]);
     }
   }
-  return pairs.sort(() => Math.random() - 0.5);
+  return pairs.sort(() => Math.random() - 0.5).slice(0, maxComparisons);
 }
 
-export function createSorter(players) {
+export function createSorter(players, maxComparisons) {
   let comparisonIndex = 0;
   const scores = new Map(players.map((player) => [player[0], 0]));
-  const comparisons = createComparisons(players);
+  const comparisons = createComparisons(players, maxComparisons);
 
   return {
     get currentPair() {
@@ -19,9 +19,6 @@ export function createSorter(players) {
     },
     get remainingComparisons() {
       return comparisons.length - comparisonIndex;
-    },
-    get totalComparisons() {
-      return comparisons.length;
     },
     get isComplete() {
       return comparisonIndex >= comparisons.length;

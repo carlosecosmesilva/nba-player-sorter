@@ -35,7 +35,8 @@ function selectTeam(short) {
 
 function startSorter(short) {
   currentTeam = selectTeam(short);
-  currentSorter = createSorter(currentTeam.players);
+  const comparisonLimit = currentTeam.short === "NBA" ? 40 : 24;
+  currentSorter = createSorter(currentTeam.players, comparisonLimit);
   $("#pickerView").hidden = true;
   $("#sorterView").hidden = false;
   $("#selectedTeamBadge").innerHTML = `<img src="${currentTeam.logo}" alt="${currentTeam.name}" />`;

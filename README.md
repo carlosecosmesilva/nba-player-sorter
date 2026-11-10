@@ -23,3 +23,5 @@ assets/
 ```
 
 Essa organização segue o padrão de recursos estáticos do projeto Player Sorter de referência e mantém o site compatível com GitHub Pages sem etapa de build.
+
+Para deixar a experiência rápida, cada ranking usa uma amostra aleatória limitada a 24 comparações por equipe e 40 comparações no ranking da liga, em vez de comparar todas as combinações possíveis.
