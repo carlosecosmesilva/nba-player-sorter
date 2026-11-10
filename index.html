@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f0e8" />
+    <title>NBA Player Sorter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">NBA PLAYER SORTER</p>
+        <h1>ESCOLHA SEU TIME<br /><em>E MONTE SEU RANKING</em></h1>
+        <p class="intro">Compare os jogadores dos principais times da liga e descubra quem é o seu favorito.</p>
+        <div class="top-actions">
+          <button class="pill-button" id="randomTeam">🎲 Time aleatório <span>→</span></button>
+          <span class="season">TEMPORADA 2026/27</span>
+        </div>
+      </header>
+
+      <section id="pickerView">
+        <div class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <label class="sr-only" for="search">Buscar time</label>
+          <input id="search" type="search" placeholder="BUSCAR TIMES" autocomplete="off" />
+        </div>
+        <div class="section-heading">
+          <div>
+            <p class="kicker">ESCOLHA UMA EQUIPE</p>
+            <h2>PRINCIPAIS TIMES</h2>
+          </div>
+          <span class="team-count" id="teamCount"></span>
+        </div>
+        <button class="league-card" id="leagueButton">
+          <span class="league-icon">★</span>
+          <span><strong>RANKING DA LIGA</strong><small>Compare os principais jogadores da NBA</small></span>
+          <span class="league-arrow">→</span>
+        </button>
+        <div class="team-grid" id="teamGrid"></div>
+        <p class="empty-state" id="emptyState" hidden>Nenhum time encontrado. Tente outra busca.</p>
+      </section>
+
+      <section id="sorterView" hidden>
+        <button class="back-button" id="backButton">← Escolher outro time</button>
+        <div class="sorter-heading">
+          <div id="selectedTeamBadge" class="team-badge large"></div>
+          <div>
+            <p class="kicker">SEU RANKING DE</p>
+            <h2 id="selectedTeamName"></h2>
+            <p class="progress-label"><span id="progressText"></span> comparações restantes</p>
+          </div>
+        </div>
+        <div class="progress"><span id="progressBar"></span></div>
+        <div id="comparisonView">
+          <p class="choose-label">QUAL JOGADOR VOCÊ PREFERE?</p>
+          <div class="player-pair" id="playerPair"></div>
+          <button class="skip-button" id="skipButton">Não consigo decidir <span>↗</span></button>
+        </div>
+        <div id="resultsView" hidden>
+          <div class="results-title">
+            <div>
+              <p class="kicker">RESULTADO FINAL</p>
+              <h2>SEU RANKING</h2>
+            </div>
+            <button class="pill-button small" id="restartButton">Refazer <span>↻</span></button>
+          </div>
+          <ol class="ranking-list" id="rankingList"></ol>
+        </div>
+      </section>
+    </main>
+    <footer>Feito para fãs de basquete · NBA Player Sorter · Dados consultados em <a href="https://www.nba.com/players" target="_blank" rel="noreferrer">NBA.com/players</a></footer>
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>
